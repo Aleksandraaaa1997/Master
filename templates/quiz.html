@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Quiz App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <form class="form-container" action="/submit" method="post">
+        <h1>Quiz</h1>
+        {% for question in questions %}
+        <div class="question-container">
+            {{ question['question']|safe }}
+            {% if question['image_options'] %}
+            {% for option_image in question['image_options'] %}
+            <label class="image-option">
+                <img class="responsive-image" src="{{ url_for('static', filename=option_image) }}" alt="Option Image">
+                <input type="radio" name="question_{{ question['id'] }}" value="{{ option_image }}">
+            </label><br>
+            {% endfor %}
+            {% else %}
+            {% for option in question['options'] %}
+            <label>
+                <input type="radio" name="question_{{ question['id'] }}" value="{{ option }}"> {{ option }}
+            </label><br>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <hr>
+        {% endfor %}
+        <input class="submit-btn" type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
