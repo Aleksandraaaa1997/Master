@@ -52,11 +52,10 @@ def update_questions():
 
 @app.route('/')
 def index():
-    # update_questions()
+    update_questions()
 
-    # generate_and_save_functions(a, 'output')
-    # return render_template('quiz.html', questions=questions)
-    return "Hello world"
+    generate_and_save_functions(a, 'output')
+    return render_template('quiz.html', questions=questions)
 
 @app.route('/submit', methods=['POST'])
 def submit():
