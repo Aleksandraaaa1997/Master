@@ -52,10 +52,11 @@ def update_questions():
 
 @app.route('/')
 def index():
-    update_questions()
+    # update_questions()
 
-    generate_and_save_functions(a, 'output')
-    return render_template('quiz.html', questions=questions)
+    # generate_and_save_functions(a, 'output')
+    # return render_template('quiz.html', questions=questions)
+    return "Hello world"
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -132,4 +133,4 @@ def add_no_cache_headers(response):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port = 8000)
