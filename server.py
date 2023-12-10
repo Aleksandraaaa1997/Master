@@ -54,7 +54,7 @@ def update_questions():
 def index():
     update_questions()
 
-    generate_and_save_functions(a, 'output')
+    # generate_and_save_functions(a, 'output')
     return render_template('quiz.html', questions=questions)
 
 @app.route('/submit', methods=['POST'])
