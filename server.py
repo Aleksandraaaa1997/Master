@@ -83,7 +83,7 @@ def generate_and_save_functions(a, filename_prefix):
     y1 = a * x
     y2 = np.full_like(x, a)
     y3 = a * x**2
-    directory = '../App_Master_1/static'  # Adjust this path as per your file structure
+    directory = './static'  # Adjust this path as per your file structure
 
     # Delete existing files with the same prefix
     for file in os.listdir(directory):
@@ -105,7 +105,7 @@ def generate_and_save_functions(a, filename_prefix):
     plt.axhline(0, color='black', linewidth=0.5)
     plt.axvline(0, color='black', linewidth=0.5)
     plt.grid(color='gray', linestyle='--', linewidth=0.5)
-    plt.savefig(os.path.join('../App_Master_1/static', f'{filename_prefix}_function1.jpg'))
+    plt.savefig(os.path.join('./static', f'{filename_prefix}_function1.jpg'))
     plt.close()
 
     # Plot y = a
@@ -117,7 +117,7 @@ def generate_and_save_functions(a, filename_prefix):
     plt.axhline(0, color='black', linewidth=0.5)
     plt.axvline(0, color='black', linewidth=0.5)
     plt.grid(color='gray', linestyle='--', linewidth=0.5)
-    plt.savefig(os.path.join('../App_Master_1/static', f'{filename_prefix}_function2.jpg'))
+    plt.savefig(os.path.join('./static', f'{filename_prefix}_function2.jpg'))
     plt.close()
 
     # Plot y = a*x^2
@@ -129,7 +129,7 @@ def generate_and_save_functions(a, filename_prefix):
     plt.axhline(0, color='black', linewidth=0.5)
     plt.axvline(0, color='black', linewidth=0.5)
     plt.grid(color='gray', linestyle='--', linewidth=0.5)
-    plt.savefig(os.path.join('../App_Master_1/static', f'{filename_prefix}_function3.jpg'))
+    plt.savefig(os.path.join('./static', f'{filename_prefix}_function3.jpg'))
     plt.close()
 
 
