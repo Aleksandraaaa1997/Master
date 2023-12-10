@@ -54,7 +54,7 @@ def update_questions():
 def index():
     update_questions()
 
-    # generate_and_save_functions(a, 'output')
+    generate_and_save_functions(a, 'output')
     return render_template('quiz.html', questions=questions)
 
 @app.route('/submit', methods=['POST'])
@@ -83,7 +83,19 @@ def generate_and_save_functions(a, filename_prefix):
     y1 = a * x
     y2 = np.full_like(x, a)
     y3 = a * x**2
+    directory = '../App_Master_1/static'  # Adjust this path as per your file structure
 
+    # Delete existing files with the same prefix
+    for file in os.listdir(directory):
+        if file.startswith(f"{filename_prefix}_function1") and file.endswith('.jpg'):
+            os.remove(os.path.join(directory, file))
+            print(f"Deleted existing file: {file}")
+        if file.startswith(f"{filename_prefix}_function2") and file.endswith('.jpg'):
+            os.remove(os.path.join(directory, file))
+            print(f"Deleted existing file: {file}")
+        if file.startswith(f"{filename_prefix}_function3") and file.endswith('.jpg'):
+            os.remove(os.path.join(directory, file))
+            print(f"Deleted existing file: {file}")
     # Plot y = a*x
     plt.figure(figsize=(6, 4))
     plt.plot(x, y1)
